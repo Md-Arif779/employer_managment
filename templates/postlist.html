@@ -1,0 +1,249 @@
+{% extends 'base.html' %}
+{% block body %}
+
+
+
+
+<style>
+
+#feedback{
+                  background: wheat;
+                }
+                .carousel-item{
+                  padding: 10% 20%;
+                  text-align: center;
+                  font-style: italic;
+                }
+                .feedback-img{
+                  width: 420px;
+                  height: auto;
+                }
+
+              *{
+                                margin: 0%;
+                                padding: ;
+                                box-sizing: border-box;
+                              }
+                            .footer{
+                              background-color: black;
+                              
+                              max-width: 1170px;
+                              margin: auto;
+                            }
+                            .row{
+                              display: flex;
+                            flex-wrap: wrap;
+                            }
+                            .col{
+                              width: 25;
+                              padding: 0 15px;
+                            }
+                            ul{
+                              list-style: none;
+                            }
+                            .col h4{
+                              font-size: 18px;
+                              color: white;
+                              text-transform: capitalize;
+                              margin-bottom: 30px;
+                              font-weight: 500;
+                              position: relative;
+                              padding: 50px 0;
+                            }
+                            .col h4::before{
+                              content:'';
+                              position: absolute;
+                              left: 0;
+                              bottom: -10px;
+                              height: 2px;
+                              box-sizing: border-box;
+                              width: 50;
+                              background-color: tomato;
+                            }
+                            .col ul li:not(last-child){
+                              margin-bottom: 10px;
+                            }
+                            .col ul li a{
+                              font-size: 16px;
+                              text-transform: capitalize;
+                              text-decoration: none;
+                              font-weight: 300;
+                              color: thistle;
+                              display: block;
+                              transition: all 0.3s ease;
+                            }
+                            .col ul li a:hover{
+                              color: white;
+                              padding: 2px;
+                            }
+                            .col .social-link a{
+                              display: inline-block;
+                              height: 40px;
+                              width: 40px;
+                              margin: 0 10px 10px 0;
+                              border-radius: 50%;
+                              color: white;
+                              transition: all 0.5s ease;
+                              text-align: center;
+                              line-height: 40px;
+                              background-color: rgba(255, 255,255, 0.2);
+                              
+                            }
+                            .col .social-link a:hover{
+                              color: #24262b;
+                              background-color: #ffffff;
+                            }
+                            
+                               h5{
+                                font-family: 'Pattaya', sans-serif;
+                              }
+                          .footer-color{
+                            background: rgb(20, 19, 19);
+                          }
+            
+</style>
+
+<div class="container">
+
+<section id="feedback">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                      <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" data-interval="1000">
+                                        <div class="carousel-indicators">
+                                          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                                          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                                        </div>
+                                        <div class="carousel-inner">
+                                          <div class="carousel-item active">
+                                            <p>HI I am Hare</p>
+                                            <img class="feedback-img" src="https://st3.depositphotos.com/29770446/37622/v/450/depositphotos_376224930-stock-illustration-cartoon-character-set-order-taxi.jpg" alt="">
+                                            <h2>DRIVER</h2>
+                                          </div>
+                                          <div class="carousel-item">
+                                            <p>HI I am Hare</p>
+                                            <img class="feedback-img" src="https://image.shutterstock.com/image-vector/multiethnic-nurse-characters-group-medical-260nw-1807858027.jpg" alt="">
+                                            <h2>WORSHIP</h2>
+                                          </div>
+                                          <div class="carousel-item">
+                                            <p>HI I am Hare</p>
+                                            <img class="feedback-img" src="https://comps.gograph.com/cleaning-service-staff-smiling-cartoon-characters-isolated-on-white-background-house-cleaners-dressed-in-uniform-vector-illustration-in-a-flat-style-cute-and-cheerful-maids-and-housekeeping-concept_gg104240529.jpg" alt="">
+                                            <h2>WORK MAID</h2>
+                                          </div>
+                                        </div>
+                                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                                          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                          <span class="visually-hidden">Previous</span>
+                                        </button>
+                                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                                          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                          <span class="visually-hidden">Next</span>
+                                        </button>
+                                      </div>
+                                    </div>
+                                </div>
+                      </section>
+
+                        <main>
+              
+                                <div class="row">
+                                  <div class="col-lg-3 col-sm-6">
+                                  <div class="text-border m-5 text-center">
+                                    <a href="C:\Users\HP\Desktop\bootstrap project\Location.html"> <i class="fas fa-map-marker-alt"></i>Location</a>
+                                 </div>
+                                 </div>
+                                 <div class="col-lg-3 col-sm-6">
+                                <div class="text-border m-5 text-center">
+                                     <a href="C:\Users\HP\Desktop\bootstrap project\Category.html"> <i class="fas fa-tag"></i>Category</a>
+                                 </div>
+                
+                                 </div>
+                                <div class="col-lg-6 col-sm-6">
+                                 <form class="d-flex py-5 text-center">
+                                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                                 <button class="btn btn-outline-success text-center" type="submit">Search</button>
+                                </form>
+                                 </div>
+                             </div>
+
+                            {% for p in post %}
+                            {{p.Name}} <br>
+
+                            <img src="{{p.image.url}}" alt=""> <br>
+                            <a href="/detail/{{p.slug}}">Details</a>
+                            <hr>
+
+
+                            
+                      <div class="footer">
+                         <div class="row">
+                          <div class="col">
+                            <h4>Follow Us</h4>
+                              <div class="social-link">
+                                <a href=""><i class="fab fa-facebook-f"></i></a>
+                                <a href=""><i class="fab fa-twitter"></i></a>
+                                <a href=""><i class="fab fa-instagram"></i></a>
+                                <a href=""><i class="fab fa-linkedin-in"></i></a>
+                              </div>
+                      </div>
+                      <div class="col">
+                            <h4>Learn More</h4>
+                          <ul>
+                            <li><a href="#">Memebership</a></li>
+                            <li><a href="#">Banner Ads</a></li>
+                            <li><a href="#">Promotions</a></li>
+                            <li><a href="#">Staffing Solutions</a></li>
+                          </ul>
+                      </div>
+                      <div class="col">
+                            <h4>Help & Support</h4>
+                              <ul>
+                                 <li><a href="#">FAQ</a></li>
+                                 <li><a href="#">Stay Safe</a></li>
+                                 <li><a href="#">Contacts</a></li>
+                               </ul>
+                     </div>
+                     <div class="col">
+                            <h4>About US</h4>
+                              <ul>
+                               <li><a href="#">Abouts</a></li>
+                               <li><a href="#">Carees</a></li>
+                               <li><a href="#">Trems & Conditions</a></li>
+                               <li><a href="#">Privace Policy</a></li>
+                               <li><a href="#">Sitemap</a></li>
+                             </ul>
+                       </div>
+                         </div>
+                            <hr class="mb-4">
+                            <div class="footer-color">
+                              <div class="row align-items-center">
+                              
+                                <div class="col-lg-6 text-center text-lg-left mb-2 mb-lg-0">
+                                  <p class="small mb-0 mt-1 text-white">&copy; Copyright Md Arif</p>
+                             </div>
+                             <div class="col-lg-6 text-center text-lg-right mt-1">
+                                    <h5 class="text-white">HelloCare.Com</h5>
+                             </div>
+                               
+                            </div>
+                            </div>
+                      </div>
+            </footer>
+
+
+
+
+
+
+                         </main>
+                
+                     
+
+</div>
+
+
+
+
+<hr>
+{% endfor %}
+{% endblock body %}

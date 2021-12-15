@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--facebook comment-->
+     <div id="fb-root"></div>
+     <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v12.0" nonce="Ra2MGdkc"></script>
+
+    <title>Document</title>
+        <!--font awesome 5-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+        <!--google font-->
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Pattaya&display=swap" rel="stylesheet">
+
+       
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
+        <style>
+                html{
+                    scroll-behavior: smooth;
+                }
+
+                /*header strats*/
+
+                .navbar{
+                    padding: 1% 10%;
+                    background-color: rgba(0,0,0,0.3);
+                }
+                .navbar-icon{
+                    color: white;
+                }
+                .navbar-brand img{
+                    width: 50px;
+                    height: auto;
+                }
+                .nav-link{
+                    color: white;
+                    margin: 15px;
+                    border-radius: 8px;
+                    
+                    
+                }
+                .nav-link:hover{
+                     background: white;
+                     color: rgb(133, 124, 133);
+                     transform: scale(1.3);
+                     
+                }
+              
+                  
+      
+                }
+                .banner-container h1{
+                  font-family: 'Pattaya', sans-serif;
+                }
+                .navbar-nav li{
+                  position: relative;
+                  list-style: none;
+                  
+
+                }
+                .navbar-nav li ul{
+                  display: none;
+                  
+
+                }
+                .navbar-nav li:hover ul{
+                  display: block;
+                  position: absolute;
+                  background: red;
+                  
+
+                }
+
+
+
+
+
+
+
+
+
+
+
+                /*header ends*/
+                
+           </style>
+
+      {% load static %}   
+      {% load notifications_tags %}
+      <script src="{% static 'notifications/notify.js' %}" type="text/javascript"></script>
+</head>
+<body>
+
+        <div class="container">
+
+            <header>
+                    
+                    <nav class="navbar navbar-expand-md">
+                        <div class="container-fluid">
+                          
+                          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                            <span> <i class="fas fa-bars navbar-icon"></i> </span>
+                          </button>
+
+                          <a class="navbar-brand" href="#">
+                            <img src="data:image/png;base64,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" alt="logo">
+                          </a>
+                          <div class="banner-container text-left">
+                            <h1 class="text-white font-weight-bolder">HelloCare.com </h1>
+                          </div>
+                             
+                          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                            <ul class="navbar-nav ml-auto">
+                              <li class="nav-item">
+                                <a class="nav-link active" href="/calc/posts/"> <i class="fas fa-home"></i>Home</a>
+                              </li>
+                              <li class="nav-item">
+                                
+                                <a class="nav-link" href="/colc/login"> <i class="fas fa-user"></i> SING IN</a>
+                              </li>
+
+                              <li class="nav-item">
+                                
+                                <a class="nav-link" href="/colc/singup"> <i class="fas fa-user"></i> SINGUP</a>
+                              </li>
+                              
+                              <li class="nav-item">
+                                
+                                <a class="btn btn-secondary m-3 text-border" href="/calc/create/"> </i>Posts</a>
+                              </li>
+                              
+                              <li class="nav-item">
+                              {% notifications_unread as unread_count %}
+                              {% if unread_count %}
+                              {% register_notify_callbacks callbacks='fill_notification_list, fill_notification_badge, my_special_notifications_callback' %}
+                                
+                                <a class="btn btn-secondary m-3 text-border" href="/now/notification/">{% live_notify_badge %} </i>notifications</a>
+                                {% endif %}
+                              </li>
+                             
+                              
+                              
+                              <li class="nav-item submenu">                                
+                                <a class="btn btn-secondary m-3 text-border" href=""> </i>
+                                {{user.username}}
+                              </a>
+                                <ul>
+                                  <li><a class="btn btn-secondary m-3 text-border" href="/calc/profile/"> </i>See your Profile</a></li>
+                                  <li><a class="btn btn-secondary m-3 text-border" href="/colc/password/"> </i>Change Password</a></li>
+                                  <li><a class="btn btn-secondary m-3 text-border" href="/colc/logout/"> </i>Logout</a></li>
+                                  
+                                </ul>
+                              </li>
+                              
+
+                          </ul>
+
+    
+
+                          </div>
+                        </div>
+                      </nav>
+                    </header>  
+
+        </div>
+            <!--Dismiss Alerts-->
+            {% for message in messages %}
+            <div class="container">
+            <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+            {{message}}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+             </div>
+            </div>
+             {% endfor %}
+{% block body %}
+
+{% endblock body %}
+
+
+
+
+
+    <!--bootstrap js-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
+</body>
+
+{% block js %}
+
+{% endblock js %}
+
+</html>

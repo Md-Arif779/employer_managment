@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block body %}
+{% load crispy_forms_tags %}
+<div class="container">
+<div calss="content-section">
+    <div class="media">
+        <img class="rounded-circle account-img" src="{{ user.profile.image.url }}">
+        <div class="media-body">
+            <h2 class="account-heading">{{ user.username }}</h2>
+            <p class="text-secondary">{{ user.email }}</p>
+        </div>
+    </div>
+        {% load crispy_forms_tags %}
+
+       <div class="col-md-6 offset-md-3">
+       <form action="" method="POST" enctype="multipart/form-data">
+       <legend class="border-bottom mb-4">Profile Info</legend>
+       {% csrf_token %}
+       {{u_form|crispy}}
+       {{p_form|crispy}}
+       <button type="submit">Submit</button>
+ 
+   </form>
+   </div>
+
+</div>
+</div>
+
+{% comment %} <div class="container">
+<h1>Details Post</h1>
+<div class="col-md-6">
+<img src="{{queryset.image.url}}" alt=""style="width:300px; height:300px;">
+</div>
+
+{% if request.user == queryset.user %}
+<a href="/calc/edit/{{queryset.id}}/"> Edit</a><br>
+<a href="/calc/delete/{{queryset.id}}/"> delete</a><br>
+                                   
+{% endif %}
+Name={{ queryset }}<br>
+Phone={{queryset.Phone}}<br>
+Email={{queryset.Email}}<br>
+NID={{queryset.NID}}<br>
+Present_Adress={{queryset.Present_Adress}}<br>
+Permanent_Adress={{queryset.Permanent_Adress}}<br>
+Available={% if queryset.Available%} Yes {% else%}No {% endif%}<br>
+Category={{queryset.Category}}<br>
+language={{queryset.language}}<br>
+Details={{queryset.Details}}<br>
+</div> {% endcomment %}
+{% endblock  %}

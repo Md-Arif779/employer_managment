@@ -1,0 +1,141 @@
+{% extends 'base.html' %}
+
+{% block body %}
+{% load tag %}
+<div class="container">
+<h1>Details Post</h1>
+<div class="col-md-6">
+<img src="{{queryset.image.url}}" alt=""style="width:300px; height:300px;">
+</div>
+
+{% if request.user == queryset.user %}
+<a href="/calc/edit/{{queryset.id}}/"> Edit</a><br>
+<a href="/calc/delete/{{queryset.id}}/"> delete</a><br>
+                                   
+{% endif %}
+Name={{ queryset}}<br>
+Phone={{queryset.Phone}}<br>
+Email={{queryset.Email}}<br>
+NID={{queryset.NID}}<br>
+Present_Adress={{queryset.Present_Adress}}<br>
+Permanent_Adress={{queryset.Permanent_Adress}}<br>
+Available={% if queryset.Available%} Yes {% else%}No {% endif%}<br>
+Category={{queryset.Category}}<br>
+language={{queryset.language}}<br>
+Details={{queryset.Details}}<br>
+
+<!--facebook comment-->
+<div>
+<div class="fb-comments" data-href="http://127.0.0.1:8000/calc/post/details/19" data-width="" data-numposts="10"></div>
+</div>
+
+
+
+    <div>
+        <form action="{% url 'addcomment' %}" method="post">
+        {% csrf_token %} 
+        <div class="form-group">
+            <lebel> Your Comment</lebel>
+            <input type="text" name="comment" placeholder="Enter Your Comment" class="form-control">
+            <input type="hidden" name="postid" value="{{queryset.id}}">
+            <input type="hidden" name="parentid" value="">
+        </div>
+        <button type="submit">Add Comment</button>
+        </form>
+   </div>
+   <div>
+        {% for comment in comments %}
+            <div class="row">
+                <div class="col-md-1">
+                    <img src="{{comment.user.userprofile.image.url}}" class="roundedimg thumbnail" style="width:45px;" alt="">
+                </div>
+                <div class="col-md-11">
+                    <b>{{comment.user.username}}</b> <span class="bedge bedge-secondary">{{comment.created_at}}
+                    </span>
+                    <div>{{comment.text}}</div>
+                    <div>
+                    <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Delete Comment
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Delete Comment</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Are you sure to delete your comment ?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn"> <a href="/calc/commentdelete/{{comment.pk}}/">Delete</a></button>
+      </div>
+    </div>
+  </div>
+</div>
+                    
+                    </div>
+                    <div class="row">
+        <form action="{% url 'addcomment' %}" method="post">
+              {% csrf_token %}
+        <div class="form-group">
+            <lebel> Your Reply</lebel>
+            <input type="text" name="comment" placeholder="Enter Your Comment" class="form-control">
+            <input type="hidden" name="postid" value="{{queryset.id}}">
+            <input type="hidden" name="parentid" value="{{comment.id}}">
+        </div>
+        <button type="submit">Add reply</button>
+        </form>
+
+</div>
+            {% for reply in Dictofreply|get_reply:comment.id %}
+            <div class="row">
+                <div class="col-md-1">
+                    <img src="{{reply.user.userprofile.image.url}}" class="roundedimg thumbnail" style="width:45px;" alt="">
+                </div>
+                <div class="col-md-11">
+                    <b>{{reply.user.username}}</b> <span class="bedge bedge-secondary">{{reply.created_at}}
+                    </span>
+                    <div>{{reply.text}}</div>
+                          <div>
+                    <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal{{reply.pk}}">
+  Delete Reply
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal{{reply.pk}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Delete Comment</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Are you sure to delete your comment ?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn"> <a href="/calc/commentdelete/{{reply.pk}}/">Delete</a></button>
+      </div>
+    </div>
+  </div>
+</div>
+                    
+                    </div>
+                    </div>
+                    
+                </div>
+{% endfor %}
+            </div>
+        
+        {% endfor%}
+   </div>
+</div>
+{% endblock  %}
+
+

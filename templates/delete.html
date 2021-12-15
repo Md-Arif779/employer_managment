@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block body %}
+<div class="container">
+<form method="post">
+{% csrf_token %}
+<h5> Are you sure to Delete this post</h5>
+<a href="/calc/posts/"> Cancel</a>
+
+<button type="submit">Yes</button>
+
+ </form>
+</div>
+
+{% endblock body %}
